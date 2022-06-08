@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
-import { IntroSection } from "../components/introsection";
+import { ComponentWrapper } from "../components";
 
 const Home: NextPage = () => {
   return (
     <div className="">
-      <IntroSection onClick={() => {}} />
+      <ComponentWrapper />
     </div>
   );
 };

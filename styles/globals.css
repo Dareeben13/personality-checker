@@ -8,7 +8,7 @@ body {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  /* overflow: hidden; */
   scroll-behavior: smooth;
 }
 
@@ -34,6 +34,37 @@ a {
 
 .c-pointer {
   cursor: pointer;
+}
+
+.rad-wrap {
+  border: 2px solid transparent;
+  border-bottom: 2px solid rgba(235, 233, 233, 0.4);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.rad-wrap:first-child {
+  border-top: 2px solid rgba(238, 238, 238, 0.4);
+}
+
+.rad-wrap:hover {
+  border: 2px solid #ff717b;
+}
+
+.active-rad-wrap {
+  border: 2px solid rgba(255, 90, 95, 0.8);
+  background-color: rgba(255, 90, 95, 0.8);
+}
+
+.active-rad-wrap label {
+  color: #fff;
+}
+
+.section-wrapper::before {
+  content: " ";
+  display: table;
 }
 
 input[type="radio"] {
@@ -72,4 +103,74 @@ input[type="radio"]:checked ~ .checkmark {
 }
 input[type="radio"]:checked ~ .checkmark::after {
   content: url("../assets/check.svg");
+}
+
+@media (max-width: 800px) {
+  html,
+  body {
+    overflow: auto;
+  }
+
+  .no-mobile {
+    display: none !important;
+  }
+  .no-desktop-but-mobile-flex {
+    display: flex !important;
+  }
+
+  .section-wrapper {
+    height: auto !important;
+    padding-top: 82px;
+  }
+
+  .res-image {
+    width: 44.1px !important;
+    max-width: 63.4px;
+  }
+  .intro-H1 {
+    font-size: 24px !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .intro-p {
+    max-width: 260px;
+    margin-bottom: 40px !important;
+  }
+
+  .left-floated {
+    float: unset;
+    padding-left: 14.5px !important;
+    padding-right: 14.5px !important;
+    width: 100% !important;
+  }
+
+  .right-floated {
+    float: unset !important;
+    padding: 0px !important;
+    width: 100% !important;
+  }
+
+  .sec-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-wrapper {
+    padding-left: 14.5px !important;
+    padding-right: 14.5px !important;
+  }
+  .rtq {
+    padding-top: 20px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .q-h1 {
+    font-size: 22px !important;
+  }
+
+  .ans-wrap {
+    width: 100%;
+  }
 }
