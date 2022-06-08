@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from "react";
+import { useSyncState } from "../hooks";
 
 interface ProviderProps {
   children: React.ReactNode;
@@ -8,21 +9,25 @@ export const QuestionContext = createContext<any>(null);
 
 export const useQuestionContext = () => useContext(QuestionContext);
 
+export type OptionsType = {
+  text: string;
+  tag: string;
+};
+
 export interface MappedQuestions {
   question: string;
-  options: string[];
+  options: OptionsType[];
 }
 
 export const QuestionProivder = ({ children }: ProviderProps) => {
-  const [currentSection, setCurrentSection] = useState("questionOne");
+  const [currentSection, setCurrentSection] = useState("intro");
   const [questionMap, setQuestionMap] = useState<MappedQuestions[] | null>(null);
-  const Ids: string[] = ["questionOne"];
+  const feedback = useSyncState({});
+  const Ids: string[] = ["intro", "question1", "question2", "question3", "question4", "question5"];
   const lastId = Ids[Ids.length - 1];
-  //  "intro", "questionTwo", "questionThree", "questionFour", "questionFive"
 
   const scroll = (id: string) => {
     const section = document.querySelector(`#${id}`);
-    console.log({ section });
     section!.scrollIntoView({ behavior: "smooth", block: "start" });
     setTimeout(() => {
       setCurrentSection(id);
@@ -58,6 +63,7 @@ export const QuestionProivder = ({ children }: ProviderProps) => {
         Ids,
         setQuestionMap,
         questionMap,
+        feedback,
       }}
     >
       {children}

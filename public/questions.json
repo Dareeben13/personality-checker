@@ -2,31 +2,106 @@
   {
     "question": "You are taking part in a guided tour of a museum. You:",
     "options": [
-      "Are a bit too far towards the back so don’t really hear what the guide is saying",
-      "Follow the group without question",
-      "Make sure that everyone is able to hear properly",
-      "Are right up the front, adding your own comments in a loud voice"
+      {
+        "text": "Are a bit too far towards the back so don’t really hear what the guide is saying",
+        "tag": "intro"
+      },
+      {
+        "text": "Follow the group without question",
+        "tag": "intro"
+      },
+      {
+        "text": "Make sure that everyone is able to hear properly",
+        "tag": "extro"
+      },
+      {
+        "text": "Are right up the front, adding your own comments in a loud voice",
+        "tag": "extro"
+      }
     ]
   },
   {
     "question": "You’re having an animated discussion with a colleague regarding a project that you’re in charge of. You:",
-    "options": ["Don’t dare contradict them", "Think that they are obviously right", "Defend your own point of view, tooth and nail", "Continuously interrupt your colleague"]
+    "options": [
+      {
+        "text": "Don’t dare contradict them",
+        "tag": "intro"
+      },
+      {
+        "text": "Think that they are obviously right",
+        "tag": "intro"
+      },
+      {
+        "text": "Defend your own point of view, tooth and nail",
+        "tag": "extro"
+      },
+      {
+        "text": "Continuously interrupt your colleague",
+        "tag": "extro"
+      }
+    ]
   },
   {
     "question": "You’ve been sitting in the doctor’s waiting room for more than 25 minutes. You:",
     "options": [
-      "Look at your watch every two minutes",
-      "Bubble with inner anger, but keep quiet",
-      "Explain to other equally impatient people in the room that the doctor is always running late",
-      "Complain in a loud voice, while tapping your foot impatiently"
+      {
+        "text": "Look at your watch every two minutes",
+        "tag": "intro"
+      },
+      {
+        "text": "Bubble with inner anger, but keep quiet",
+        "tag": "intro"
+      },
+      {
+        "text": "Explain to other equally impatient people in the room that the doctor is always running late",
+        "tag": "extro"
+      },
+      {
+        "text": "Complain in a loud voice, while tapping your foot impatiently",
+        "tag": "extro"
+      }
     ]
   },
   {
     "question": "You're headed to the airport for an early morning flight. What are you wearing?",
-    "options": ["Sweat pants. Duh", "Security lines be damned, I'm rocking boots.", "Workout clothes, just in case there's a yoga room somewhere.", "Same outfit I was wearing last night. Oops."]
+    "options": [
+      {
+        "text": "Sweat pants. Duh",
+        "tag": "intro"
+      },
+      {
+        "text": "Security lines be damned, I'm rocking boots.",
+        "tag": "intro"
+      },
+      {
+        "text": "Workout clothes, just in case there's a yoga room somewhere.",
+        "tag": "extro"
+      },
+      {
+        "text": "Same outfit I was wearing last night. Oops.",
+        "tag": "extro"
+      }
+    ]
   },
   {
     "question": "During dinner parties at your home, you have a hard time with people who:",
-    "options": ["Ask you to tell a story in front of everyone else", "Talk privately between themselves", "Hang around you all evening", "Always drag the conversation back to themselves"]
+    "options": [
+      {
+        "text": "Ask you to tell a story in front of everyone else",
+        "tag": "intro"
+      },
+      {
+        "text": "Talk privately between themselves",
+        "tag": "intro"
+      },
+      {
+        "text": "Hang around you all evening",
+        "tag": "intro"
+      },
+      {
+        "text": "Always drag the conversation back to themselves",
+        "tag": "intro"
+      }
+    ]
   }
 ]

@@ -3,7 +3,7 @@ import { MappedQuestions, useQuestionContext } from "../../context";
 import { QuestionItem } from "../QuestionItem";
 
 export const QuestionsWrapper = () => {
-  const { questionMap } = useQuestionContext();
+  const { questionMap, feedback } = useQuestionContext();
   return (
     <Fragment>
       {questionMap?.length > 0 &&

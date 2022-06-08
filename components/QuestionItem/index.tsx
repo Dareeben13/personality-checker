@@ -5,9 +5,9 @@ import dinner from "../../assets/dinner.png";
 import sitting from "../../assets/sitting.png";
 import tour from "../../assets/tour.png";
 import { ResponsiveImage, SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "../IntroSection/styles";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FormRadioItem } from "../FormItem";
-import { AnswersWrapper, LeftFloatedContainer, RightFloatedContainer, SectionContent, QuestionTextWrapper, WrapperQuestion, Subject, QuestionH1 } from "./styles";
+import { AnswersWrapper, LeftFloatedContainer, RightFloatedContainer, SectionContent, QuestionTextWrapper, WrapperQuestion, Subject, QuestionH1, SubmitButton } from "./styles";
 import { MappedQuestions, useQuestionContext } from "../../context";
 
 const IMAGE_LIST = [tour, discuss, sitting, flightDresss, dinner];
@@ -18,10 +18,20 @@ interface questionItemProp extends MappedQuestions {
 
 export const QuestionItem = React.memo(({ options, question, index }: questionItemProp) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const { onNext, questionMap } = useQuestionContext();
+  const [currentAnswer, setCurrentAnswer] = useState<any>({});
+  const { onNext, questionMap, feedback, currentSection, lastId } = useQuestionContext();
+
+  useEffect(() => {
+    if (currentAnswer?.tag) {
+      feedback.set({
+        ...feedback.get(),
+        [`question${index! + 1}`]: currentAnswer["tag"],
+      });
+    }
+  }, [currentAnswer]);
 
   return (
-    <SectionWrapper className="section-wrapper rtq" id="questionOne" style={{ maxWidth: "1144px" }}>
+    <SectionWrapper className="section-wrapper rtq" id={`question${index + 1}`} style={{ maxWidth: "1144px" }}>
       <VerticalLineContainer className="no-mobile" style={{ bottom: "0", background: "#e4e4e4", width: "1px", height: "100%", left: "50%" }} />
       <VerticalContainer>
         <VerticalAlignContent>
@@ -31,17 +41,18 @@ export const QuestionItem = React.memo(({ options, question, index }: questionIt
               <AnswersWrapper className="ans-wrap" style={{ paddingTop: "20px" }}>
                 {options.map((option, index) => (
                   <FormRadioItem
-                    value={option}
+                    value={option["text"]}
                     currentIndex={currentIndex}
                     index={index}
                     setCurrentIndex={setCurrentIndex}
                     key={index}
-                    id={option}
-                    name="questionOne"
+                    name={question}
                     label={option}
                     onNext={() => onNext()}
+                    setCurrentAnswer={setCurrentAnswer}
                   />
                 ))}
+                {currentSection === lastId && feedback.get()[lastId] && Object.keys(feedback.get()).length === 5 && <SubmitButton>Submit</SubmitButton>}
               </AnswersWrapper>
             </RightFloatedContainer>
           </SectionContent>

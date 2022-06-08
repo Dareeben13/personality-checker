@@ -6,9 +6,10 @@ import { fetchQuestions } from "../pages/api/hello";
 import { IntroSection } from "./IntroSection";
 import styled from "styled-components";
 import { QuestionsWrapper } from "./QuestionsWrapper";
+import { SlideWrapper } from "./Slider";
 
 export const ComponentWrapper = () => {
-  const { setQuestionMap } = useQuestionContext();
+  const { setQuestionMap, scroll, setCurrentSection } = useQuestionContext();
 
   useEffect(() => {
     (async () => {
@@ -17,11 +18,14 @@ export const ComponentWrapper = () => {
         setQuestionMap(data);
       } catch (error) {}
     })();
+    scroll("intro");
+    setCurrentSection("intro");
   }, []);
 
   return (
     <Fragment>
-      <IntroSection onClick={() => {}} />
+      <IntroSection onClick={() => scroll("question1")} />
+      <SlideWrapper />
       <QuestionsWrapper />
     </Fragment>
   );
