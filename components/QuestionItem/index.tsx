@@ -34,7 +34,7 @@ export const QuestionItem = React.memo(({ options, question, index }: questionIt
 
   const onClick = () => {
     router.push("/prediction");
-  }
+  };
 
   return (
     <SectionWrapper className="section-wrapper rtq" id={`question${index + 1}`} style={{ maxWidth: "1144px" }}>
