@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { useQuestionContext } from "../context";
 import { fetchQuestions } from "../pages/api/hello";
+//@ts-ignore
 import { IntroSection } from "./IntroSection";
 import styled from "styled-components";
 import { QuestionsWrapper } from "./QuestionsWrapper";
