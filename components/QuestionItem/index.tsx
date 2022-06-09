@@ -6,6 +6,7 @@ import sitting from "../../assets/sitting.png";
 import tour from "../../assets/tour.png";
 import { ResponsiveImage, SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "../IntroSection/styles";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { FormRadioItem } from "../FormItem";
 import { AnswersWrapper, LeftFloatedContainer, RightFloatedContainer, SectionContent, QuestionTextWrapper, WrapperQuestion, Subject, QuestionH1, SubmitButton } from "./styles";
 import { MappedQuestions, useQuestionContext } from "../../context";
@@ -20,6 +21,7 @@ export const QuestionItem = React.memo(({ options, question, index }: questionIt
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState<any>({});
   const { onNext, questionMap, feedback, currentSection, lastId } = useQuestionContext();
+  const router = useRouter();
 
   useEffect(() => {
     if (currentAnswer?.tag) {
@@ -29,6 +31,10 @@ export const QuestionItem = React.memo(({ options, question, index }: questionIt
       });
     }
   }, [currentAnswer]);
+
+  const onClick = () => {
+    router.push("/prediction");
+  }
 
   return (
     <SectionWrapper className="section-wrapper rtq" id={`question${index + 1}`} style={{ maxWidth: "1144px" }}>
@@ -52,7 +58,7 @@ export const QuestionItem = React.memo(({ options, question, index }: questionIt
                     setCurrentAnswer={setCurrentAnswer}
                   />
                 ))}
-                {currentSection === lastId && feedback.get()[lastId] && Object.keys(feedback.get()).length === 5 && <SubmitButton>Submit</SubmitButton>}
+                {currentSection === lastId && feedback.get()[lastId] && Object.keys(feedback.get()).length === 5 && <SubmitButton onClick={() => onClick()}>Submit</SubmitButton>}
               </AnswersWrapper>
             </RightFloatedContainer>
           </SectionContent>

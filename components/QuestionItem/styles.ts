@@ -47,6 +47,7 @@ export const SubmitButton = styled.button`
   font-size: 1.5rem;
   margin-top: 50px;
   outline: none;
+  transition: all 0.5s ease-in-out;
 
   &:hover {
     background-color: #ff717b;
