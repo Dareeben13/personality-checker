@@ -4,6 +4,7 @@ import discuss from "../../assets/discuss.png";
 import dinner from "../../assets/dinner.png";
 import sitting from "../../assets/sitting.png";
 import tour from "../../assets/tour.png";
+//@ts-ignore
 import { ResponsiveImage, SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "../IntroSection/styles";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
