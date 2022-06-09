@@ -20,8 +20,8 @@ const IMAGE_LIST = [tour, discuss, sitting, flightDresss, dinner];
 interface questionItemProp extends MappedQuestions {
   index: number;
 }
-
-export const QuestionItem = React.memo(({ options, question, index }: questionItemProp) => {
+//@ts-ignore
+export const QuestionItem = ({ options, question, index }: questionItemProp) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentAnswer, setCurrentAnswer] = useState<any>({});
   const { onNext, questionMap, feedback, currentSection, lastId } = useQuestionContext();
@@ -70,7 +70,7 @@ export const QuestionItem = React.memo(({ options, question, index }: questionIt
       </VerticalContainer>
     </SectionWrapper>
   );
-});
+};
 
 interface LeftQuestionsProps {
   questionIndex: number;

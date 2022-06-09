@@ -13,8 +13,8 @@ interface FormRadioItemProps {
   name: string;
   setCurrentAnswer: (answer: any) => void;
 }
-
-export const FormRadioItem = React.memo((props: FormRadioItemProps) => {
+//@ts-ignore
+export const FormRadioItem = (props: FormRadioItemProps) => {
   const [checked, setChecked] = useState(false);
   const { currentIndex, index, setCurrentIndex, onNext, label, value, setCurrentAnswer, ...rest } = props;
 
@@ -34,4 +34,4 @@ export const FormRadioItem = React.memo((props: FormRadioItemProps) => {
       </FormLabel>
     </FormRadioWrapper>
   );
-});
+};
