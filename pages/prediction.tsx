@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useRouter } from "next/router";
+//@ts-ignore
 import { IntroP, SectionWrapper } from "../components/IntroSection/styles";
+//@ts-ignore
 import { SubmitButton } from "../components/QuestionItem/styles";
+//@ts-ignore
 import { useQuestionContext } from "../context";
 
 const INTROVERT_OBJECT_DATA = {

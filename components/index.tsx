@@ -1,6 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { Fragment, useEffect } from "react";
 import { useQuestionContext } from "../context";
 import { fetchQuestions } from "../pages/api/hello";
 import { IntroSection } from "./IntroSection";

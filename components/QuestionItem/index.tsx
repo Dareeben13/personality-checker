@@ -8,8 +8,11 @@ import tour from "../../assets/tour.png";
 import { ResponsiveImage, SectionWrapper, VerticalAlignContent, VerticalContainer, VerticalLineContainer } from "../IntroSection/styles";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+//@ts-ignore
 import { FormRadioItem } from "../FormItem";
+//@ts-ignore
 import { AnswersWrapper, LeftFloatedContainer, RightFloatedContainer, SectionContent, QuestionTextWrapper, WrapperQuestion, Subject, QuestionH1, SubmitButton } from "./styles";
+//@ts-ignore
 import { MappedQuestions, useQuestionContext } from "../../context";
 
 const IMAGE_LIST = [tour, discuss, sitting, flightDresss, dinner];
