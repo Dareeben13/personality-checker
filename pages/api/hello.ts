@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
+import axios from "axios";
 
 type Data = {
   name: string;
@@ -10,7 +11,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
 }
 
 export const fetchQuestions = async (): Promise<any> => {
-  let res = await fetch("questions.json");
-  let data = await res.json();
+  let { data: data } = await axios.get("questions.json");
   return { data };
 };

@@ -21,17 +21,19 @@ export interface MappedQuestions {
 
 export const QuestionProivder = ({ children }: ProviderProps) => {
   const [currentSection, setCurrentSection] = useState("intro");
-  const [questionMap, setQuestionMap] = useState<MappedQuestions[] | null>(null);
+  const [questionMap, setQuestionMap] = useState<MappedQuestions[] | any>({});
   const feedback = useSyncState({});
   const Ids: string[] = ["intro", "question1", "question2", "question3", "question4", "question5"];
   const lastId = Ids[Ids.length - 1];
 
   const scroll = (id: string) => {
     const section = document.querySelector(`#${id}`);
-    section!.scrollIntoView({ behavior: "smooth", block: "start" });
-    setTimeout(() => {
-      setCurrentSection(id);
-    }, 300);
+    if (section) {
+      section!.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => {
+        setCurrentSection(id);
+      }, 300);
+    }
   };
 
   const onNext = () => {

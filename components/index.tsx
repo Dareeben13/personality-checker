@@ -14,7 +14,7 @@ export const ComponentWrapper = () => {
     (async () => {
       try {
         const { data } = await fetchQuestions();
-        setQuestionMap(data);
+        setQuestionMap!(data);
       } catch (error) {}
     })();
     scroll("intro");
